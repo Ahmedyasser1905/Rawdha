@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff6b6b;
+  --color-secondary: #54a0ff;
+  --color-accent: #feca57;
+  --color-dark: #2d3436;
+
+  --font-cairo: "Cairo", sans-serif;
+  --font-fredoka: "Fredoka", cursive;
+
+  --radius-lg: 20px;
+}
+
+@layer base {
+  body {
+    @apply font-cairo bg-[#f7f1e3] text-dark min-h-screen;
+    background-image: linear-gradient(135deg, #f7f1e3 0%, #f7d794 100%);
+    direction: rtl;
+  }
+}
+
+.glass-panel {
+  @apply bg-white/90 backdrop-blur-md border border-white/60 rounded-lg shadow-md transition-all duration-300;
+}
+
+.glass-panel:hover {
+  @apply -translate-y-1 shadow-xl;
+}
+
+/* Custom Animations for Modals */
+@keyframes zoom-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-in {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+}
+
+.zoom-in {
+  animation-name: zoom-in;
+}
+
+.slide-in-from-bottom-8 {
+  animation-name: slide-up;
+}
+
+.fade-in {
+  animation-name: fade-in;
+}
